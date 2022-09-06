@@ -1,0 +1,8 @@
+metrics_window: 600
+topics_in_order:
+  - /benchmarking_suite/timestamps/pointcloud
+  - /benchmarking_suite/timestamps/object_detection/pointcloud  # 0
+  - /benchmarking_suite/timestamps/object_detection/object_list # 1
+  - /benchmarking_suite/timestamps/object_list                  # 2
+export_timestamps: false
+export_file: timestamps.csv

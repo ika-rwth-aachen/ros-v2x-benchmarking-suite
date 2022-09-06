@@ -1,0 +1,19 @@
+<launch>
+
+  <arg name="mode" /> <!-- mqtt_interface/overlay/in_vehicle -->
+  <arg name="gui" default="false" />
+  <arg name="transmission_only" default="false" />
+
+  <!--- metrics_logger -->
+  <node pkg="benchmarking_suite" type="MetricsLogger.py" name="metrics_logger" output="screen">
+    <rosparam if="$(eval not transmission_only)" command="load" file="$(find benchmarking_suite)/params/metrics_logger_$(arg mode).yaml" />
+    <rosparam if="$(eval transmission_only)" command="load" file="$(find benchmarking_suite)/params/metrics_logger_$(arg mode)_transmission-only.yaml" />
+  </node>
+
+  <!--- metrics_echo -->
+  <node unless="$(arg gui)" pkg="rostopic" type="rostopic" name="metrics_echo" args="echo --clear /benchmarking_suite/metrics_logger/metrics" output="screen" />
+
+  <!--- experiment_trigger -->
+  <node launch-prefix="bash -c 'sleep 1; $0 $@' " if="$(arg gui)" pkg="actionlib_tools" type="axclient.py" name="experiment_trigger" args="/benchmarking_suite/metrics_logger" output="screen" />  
+
+</launch>

@@ -1,0 +1,67 @@
+<launch>
+
+  <arg name="mode" value="mqtt_interface" />
+
+  <arg name="type" /> <!-- vehicle/cloud -->
+  <arg name="gui" default="false" />
+  <arg name="record" default="false" />
+
+  <arg name="host" />
+  <arg name="port" default="1883" />
+  <arg name="user" default="" />
+  <arg name="pass" default="" />
+  <arg name="qos" default="0" />
+  <arg name="ssl" default="false" />
+
+  <arg name="packets" default="/vlp_32c/velodyne_packets" />
+  <arg name="pointcloud" default="" />
+  <arg name="datatype" default="packets" /> <!-- packets/pointcloud -->
+  <arg name="p_packets" default="1.0" />
+  <arg name="transmission_only" default="false" />
+
+  <arg name="nodelet_manager" default="nodelet_manager" />
+
+  <group ns="benchmarking_suite" >
+
+    <!--- nodelet_manager -->
+    <node pkg="nodelet" type="nodelet" name="$(arg nodelet_manager)" args="manager" output="screen" />
+
+    <!--- mqtt_client_vehicle/cloud -->
+    <include file="$(dirname)/components/mqtt_client.launch" pass_all_args="true" />
+
+    <!--- rosbag_record -->
+    <include if="$(arg record)" file="$(dirname)/components/rosbag.launch" >
+      <arg name="prefix" value="$(find benchmarking_suite)/experiments/mqtt_client" />
+    </include>
+
+    <!--- vehicle -->
+    <group if="$(eval type == 'vehicle')" >
+
+      <!--- benchmark_io -->
+      <include file="$(dirname)/components/benchmark_io.launch" pass_all_args="true" />
+
+      <!--- packets2pointcloud -->
+      <include if="$(eval datatype == 'pointcloud')" file="$(dirname)/components/packets2pointcloud.launch" pass_all_args="true" />
+
+      <!--- metrics_logger -->
+      <include file="$(dirname)/components/metrics_logger.launch" pass_all_args="true" />
+
+      <!--- plot -->
+      <include if="$(arg gui)" file="$(dirname)/components/plot.launch" pass_all_args="true" />
+
+    </group>
+
+    <!--- cloud -->
+    <group if="$(eval type == 'cloud' and not transmission_only)" >
+
+      <!--- packets2pointcloud -->
+      <include if="$(eval datatype == 'packets')" file="$(dirname)/components/packets2pointcloud.launch" pass_all_args="true" />
+
+      <!--- object_detection -->
+      <include file="$(dirname)/components/object_detection.launch" pass_all_args="true" />
+
+    </group>
+
+  </group>
+
+</launch>

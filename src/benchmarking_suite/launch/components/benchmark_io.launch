@@ -1,0 +1,22 @@
+<launch>
+
+  <arg name="nodelet_manager" />
+
+  <arg name="pointcloud" default="" />
+  <arg name="packets" default="" />
+
+  <arg name="send_packets" default="$(eval datatype == 'packets')" />
+  <arg name="p_packets" default="1.0" />
+  <arg name="n_points" default="1000000" />
+
+  <!--- benchmark_io -->
+  <node pkg="nodelet" type="nodelet" name="benchmark_io" args="load benchmarking_suite/BenchmarkIO $(arg nodelet_manager)" output="screen">
+    <rosparam command="load" file="$(find benchmarking_suite)/params/benchmark_io.yaml" subst_value="true" />
+    <remap if="$(eval len(pointcloud) > 0)" from="~pointcloud" to="$(arg pointcloud)" />
+    <remap if="$(eval len(packets) > 0)" from="~packets" to="$(arg packets)" />
+    <remap from="~pointcloud/benchmark" to="/benchmarking_suite/pointcloud" />
+    <remap from="~packets/benchmark" to="/benchmarking_suite/packets" />
+    <remap from="~object_list" to="/benchmarking_suite/object_list" />
+  </node>
+
+</launch>

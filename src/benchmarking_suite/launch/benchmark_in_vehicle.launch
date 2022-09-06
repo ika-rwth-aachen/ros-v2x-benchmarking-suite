@@ -1,0 +1,42 @@
+<launch>
+
+  <arg name="mode" value="in_vehicle" />
+
+  <arg name="gui" default="false" />
+  <arg name="record" default="false" />
+
+  <arg name="packets" default="/vlp_32c/velodyne_packets" />
+  <arg name="pointcloud" default="" />
+  <arg name="datatype" value="packets" />
+  <arg name="p_packets" default="1.0" />
+
+  <arg name="nodelet_manager" default="nodelet_manager" />
+
+  <group ns="benchmarking_suite" >
+
+    <!--- nodelet_manager -->
+    <node pkg="nodelet" type="nodelet" name="$(arg nodelet_manager)" args="manager" output="screen" />
+
+    <!--- benchmark_io -->
+    <include file="$(dirname)/components/benchmark_io.launch" pass_all_args="true" />
+
+    <!--- packets2pointcloud -->
+    <include file="$(dirname)/components/packets2pointcloud.launch" pass_all_args="true" />
+
+    <!--- object_detection -->
+    <include file="$(dirname)/components/object_detection.launch" pass_all_args="true" />
+    
+    <!--- metrics_logger -->
+    <include file="$(dirname)/components/metrics_logger.launch" pass_all_args="true" />
+
+    <!--- plot -->
+    <include if="$(arg gui)" file="$(dirname)/components/plot.launch" pass_all_args="true" />
+
+    <!--- rosbag_record -->
+    <include if="$(arg record)" file="$(dirname)/components/rosbag.launch" >
+      <arg name="prefix" value="$(find benchmarking_suite)/experiments/in_vehicle" />
+    </include>
+
+  </group>
+
+</launch>

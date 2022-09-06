@@ -1,0 +1,10 @@
+# Goal
+string name
+uint32 n_samples
+---
+# Result
+benchmarking_suite/Metrics metrics
+---
+# Feedback
+uint32 n_remaining_samples
+benchmarking_suite/Metrics metrics

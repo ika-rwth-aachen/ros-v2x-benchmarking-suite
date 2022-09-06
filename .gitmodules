@@ -1,0 +1,6 @@
+[submodule "src/mqtt_client"]
+	path = src/mqtt_client
+	url = https://github.com/ika-rwth-aachen/ros-v2x-benchmarking-suite_mqtt-client
+[submodule "src/mqtt_bridge"]
+	path = src/mqtt_bridge
+	url = https://github.com/ika-rwth-aachen/ros-v2x-benchmarking-suite_mqtt-bridge

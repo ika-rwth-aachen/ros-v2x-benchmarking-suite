@@ -1,0 +1,23 @@
+<launch>
+
+  <arg name="type" /> <!-- vehicle/cloud -->
+  <arg name="datatype" /> <!-- packets/pointcloud -->
+  <arg name="transmission_only" default="false" />
+
+  <arg name="host" />
+  <arg name="port" />
+  <arg name="user" />
+  <arg name="pass" />
+
+  <!--- mqtt_bridge -->
+  <node pkg="mqtt_bridge" type="mqtt_bridge_node.py" name="mqtt_bridge_$(arg type)" output="screen">
+    <rosparam if="$(eval type == 'vehicle' and not transmission_only)" command="load" file="$(find benchmarking_suite)/params/mqtt_bridge_$(arg type)_$(arg datatype).yaml" />
+    <rosparam if="$(eval type == 'vehicle' and transmission_only)" command="load" file="$(find benchmarking_suite)/params/mqtt_bridge_$(arg type)_$(arg datatype)_transmission-only.yaml" />
+    <rosparam if="$(eval type == 'cloud')" command="load" file="$(find benchmarking_suite)/params/mqtt_bridge_$(arg type).yaml" />
+    <param name="mqtt/connection/host" value="$(arg host)" />
+    <param name="mqtt/connection/port" value="$(arg port)" />
+    <param name="mqtt/account/username" value="$(arg user)" />
+    <param name="mqtt/account/password" value="$(arg pass)" />
+  </node>
+
+</launch>

@@ -1,0 +1,14 @@
+<launch>
+
+  <arg name="nodelet_manager" />
+
+  <!--- object_detection -->
+  <node pkg="nodelet" type="nodelet" name="object_detection" args="load benchmarking_suite/ObjectDetection $(arg nodelet_manager)" output="screen">
+    <remap from="~pointcloud" to="/benchmarking_suite/pointcloud" />
+    <remap from="~object_list" to="/benchmarking_suite/object_list" />
+    <remap from="/benchmarking_suite/timestamps/pointcloud" to="/benchmarking_suite/timestamps/object_detection/pointcloud" />
+    <remap from="/benchmarking_suite/timestamps/object_list" to="/benchmarking_suite/timestamps/object_detection/object_list" />
+    <rosparam command="load" file="$(find benchmarking_suite)/params/object_detection.yaml" />
+  </node>
+
+</launch>

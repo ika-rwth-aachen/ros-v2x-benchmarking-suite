@@ -1,0 +1,48 @@
+mqtt:
+  client:
+    protocol: 4  # MQTTv311
+serializer: msgpack:dumps
+deserializer: msgpack:loads
+bridge:
+  - factory: mqtt_bridge.bridge:RosToMqttBridge
+    msg_type: velodyne_msgs.msg:VelodyneScan
+    topic_from: /benchmarking_suite/packets
+    topic_to: benchmarking_suite/packets
+    timestamp_topic_prefix: /benchmarking_suite/timestamps/mqtt_interface_vehicle/pointcloud
+  - factory: mqtt_bridge.bridge:MqttToRosBridge
+    msg_type: benchmarking_suite.msg:ObjectList
+    topic_from: benchmarking_suite/object_list
+    topic_to: /benchmarking_suite/object_list
+    timestamp_topic_prefix: /benchmarking_suite/timestamps/mqtt_interface_vehicle/object_list
+  - factory: mqtt_bridge.bridge:MqttToRosBridge
+    msg_type: benchmarking_suite.msg:TimeStamped
+    topic_from: benchmarking_suite/timestamps/mqtt_interface_cloud/pointcloud/in
+    topic_to: /benchmarking_suite/timestamps/mqtt_interface_cloud/pointcloud/in
+  - factory: mqtt_bridge.bridge:MqttToRosBridge
+    msg_type: benchmarking_suite.msg:TimeStamped
+    topic_from: benchmarking_suite/timestamps/mqtt_interface_cloud/pointcloud/out
+    topic_to: /benchmarking_suite/timestamps/mqtt_interface_cloud/pointcloud/out
+  - factory: mqtt_bridge.bridge:MqttToRosBridge
+    msg_type: benchmarking_suite.msg:TimeStamped
+    topic_from: benchmarking_suite/timestamps/object_detection/pointcloud
+    topic_to: /benchmarking_suite/timestamps/object_detection/pointcloud
+  - factory: mqtt_bridge.bridge:MqttToRosBridge
+    msg_type: benchmarking_suite.msg:TimeStamped
+    topic_from: benchmarking_suite/timestamps/object_detection/preprocessing
+    topic_to: /benchmarking_suite/timestamps/object_detection/preprocessing
+  - factory: mqtt_bridge.bridge:MqttToRosBridge
+    msg_type: benchmarking_suite.msg:TimeStamped
+    topic_from: benchmarking_suite/timestamps/object_detection/inference
+    topic_to: /benchmarking_suite/timestamps/object_detection/inference
+  - factory: mqtt_bridge.bridge:MqttToRosBridge
+    msg_type: benchmarking_suite.msg:TimeStamped
+    topic_from: benchmarking_suite/timestamps/object_detection/object_list
+    topic_to: /benchmarking_suite/timestamps/object_detection/object_list
+  - factory: mqtt_bridge.bridge:MqttToRosBridge
+    msg_type: benchmarking_suite.msg:TimeStamped
+    topic_from: benchmarking_suite/timestamps/mqtt_interface_cloud/object_list/in
+    topic_to: /benchmarking_suite/timestamps/mqtt_interface_cloud/object_list/in
+  - factory: mqtt_bridge.bridge:MqttToRosBridge
+    msg_type: benchmarking_suite.msg:TimeStamped
+    topic_from: benchmarking_suite/timestamps/mqtt_interface_cloud/object_list/out
+    topic_to: /benchmarking_suite/timestamps/mqtt_interface_cloud/object_list/out

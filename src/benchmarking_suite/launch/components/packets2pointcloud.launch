@@ -1,0 +1,12 @@
+<launch>
+
+  <arg name="nodelet_manager" />
+
+  <!--- packets2pointcloud -->
+  <node pkg="nodelet" type="nodelet" name="packets2pointcloud" args="load velodyne_pointcloud/TransformNodelet $(arg nodelet_manager)" output="log">
+    <rosparam command="load" file="$(find benchmarking_suite)/params/vlp32.yaml" subst_value="true" />
+    <remap from="velodyne_packets" to="/benchmarking_suite/packets" />
+    <remap from="velodyne_points" to="/benchmarking_suite/pointcloud" />
+  </node>
+
+</launch>

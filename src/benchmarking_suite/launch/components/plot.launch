@@ -1,0 +1,11 @@
+<launch>
+
+  <arg name="mode" /> <!-- mqtt_interface/overlay/in_vehicle -->
+
+  <!--- plot -->
+  <arg name="metrics" value="/benchmarking_suite/metrics_logger/metrics" />
+  <node if="$(eval mode == 'mqtt_interface')" pkg="rqt_plot" type="rqt_plot" name="plot" args="$(arg metrics)/total_latency $(arg metrics)/latencies[0] $(arg metrics)/latencies[1] $(arg metrics)/latencies[2] $(arg metrics)/latencies[3] $(arg metrics)/latencies[4] $(arg metrics)/latencies[5] $(arg metrics)/latencies[6] $(arg metrics)/latencies[7] $(arg metrics)/latencies[8] $(arg metrics)/latencies[9] $(arg metrics)/latencies[10]" output="screen" />
+  <node if="$(eval mode == 'overlay')" pkg="rqt_plot" type="rqt_plot" name="plot" args="$(arg metrics)/total_latency $(arg metrics)/latencies[0] $(arg metrics)/latencies[1] $(arg metrics)/latencies[2]" output="screen" />
+  <node if="$(eval mode == 'in_vehicle')" pkg="rqt_plot" type="rqt_plot" name="plot" args="$(arg metrics)/total_latency $(arg metrics)/latencies[0] $(arg metrics)/latencies[1] $(arg metrics)/latencies[2]" output="screen" />
+
+</launch>

@@ -1,0 +1,5 @@
+send_packets: $(arg send_packets)
+p_packets: $(arg p_packets)
+n_points: $(arg n_points)
+bag_file: ../../rosbags/single_packet.bag
+bag_rate: 10

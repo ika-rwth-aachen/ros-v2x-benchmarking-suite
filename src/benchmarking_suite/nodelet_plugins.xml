@@ -1,0 +1,10 @@
+<library path="lib/libObjectDetection">
+  <class name="benchmarking_suite/ObjectDetection" type="benchmarking_suite::ObjectDetection" base_class_type="nodelet::Nodelet">
+    <description>ObjectDetection Nodelet</description>
+  </class>
+</library>
+<library path="lib/libBenchmarkIO">
+  <class name="benchmarking_suite/BenchmarkIO" type="benchmarking_suite::BenchmarkIO" base_class_type="nodelet::Nodelet">
+    <description>BenchmarkIO Nodelet</description>
+  </class>
+</library>

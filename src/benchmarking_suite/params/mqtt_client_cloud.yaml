@@ -1,0 +1,37 @@
+bridge:
+  mqtt2ros:
+    - mqtt_topic: benchmarking_suite/pointcloud
+      ros_topic: /benchmarking_suite/pointcloud
+      timestamp_topic_prefix: /benchmarking_suite/timestamps/mqtt_interface_cloud/pointcloud
+      advanced:
+        mqtt:
+          qos: $(arg qos)
+    - ros_topic: /benchmarking_suite/packets
+      mqtt_topic: benchmarking_suite/packets
+      timestamp_topic_prefix: /benchmarking_suite/timestamps/mqtt_interface_cloud/pointcloud
+      advanced:
+        mqtt:
+          qos: $(arg qos)
+  ros2mqtt:
+    - mqtt_topic: benchmarking_suite/object_list
+      ros_topic: /benchmarking_suite/object_list
+      timestamp_topic_prefix: /benchmarking_suite/timestamps/mqtt_interface_cloud/object_list
+      advanced:
+        mqtt:
+          qos: $(arg qos)
+    - ros_topic: /benchmarking_suite/timestamps/mqtt_interface_cloud/pointcloud/in
+      mqtt_topic: benchmarking_suite/timestamps/mqtt_interface_cloud/pointcloud/in
+    - ros_topic: /benchmarking_suite/timestamps/mqtt_interface_cloud/pointcloud/out
+      mqtt_topic: benchmarking_suite/timestamps/mqtt_interface_cloud/pointcloud/out
+    - ros_topic: /benchmarking_suite/timestamps/object_detection/pointcloud
+      mqtt_topic: benchmarking_suite/timestamps/object_detection/pointcloud
+    - ros_topic: /benchmarking_suite/timestamps/object_detection/preprocessing
+      mqtt_topic: benchmarking_suite/timestamps/object_detection/preprocessing
+    - ros_topic: /benchmarking_suite/timestamps/object_detection/inference
+      mqtt_topic: benchmarking_suite/timestamps/object_detection/inference
+    - ros_topic: /benchmarking_suite/timestamps/object_detection/object_list
+      mqtt_topic: benchmarking_suite/timestamps/object_detection/object_list
+    - ros_topic: /benchmarking_suite/timestamps/mqtt_interface_cloud/object_list/in
+      mqtt_topic: benchmarking_suite/timestamps/mqtt_interface_cloud/object_list/in
+    - ros_topic: /benchmarking_suite/timestamps/mqtt_interface_cloud/object_list/out
+      mqtt_topic: benchmarking_suite/timestamps/mqtt_interface_cloud/object_list/out

@@ -1,0 +1,16 @@
+metrics_window: 600
+topics_in_order:
+  - /benchmarking_suite/timestamps/pointcloud
+  - /benchmarking_suite/timestamps/mqtt_interface_vehicle/pointcloud/in   # 0
+  - /benchmarking_suite/timestamps/mqtt_interface_vehicle/pointcloud/out  # 1
+  - /benchmarking_suite/timestamps/mqtt_interface_cloud/pointcloud/in     # 2
+  - /benchmarking_suite/timestamps/mqtt_interface_cloud/pointcloud/out    # 3
+  - /benchmarking_suite/timestamps/object_detection/pointcloud            # 4
+  - /benchmarking_suite/timestamps/object_detection/object_list           # 5
+  - /benchmarking_suite/timestamps/mqtt_interface_cloud/object_list/in    # 6
+  - /benchmarking_suite/timestamps/mqtt_interface_cloud/object_list/out   # 7
+  - /benchmarking_suite/timestamps/mqtt_interface_vehicle/object_list/in  # 8
+  - /benchmarking_suite/timestamps/mqtt_interface_vehicle/object_list/out # 9
+  - /benchmarking_suite/timestamps/object_list                            # 10
+export_timestamps: false
+export_file: timestamps.csv

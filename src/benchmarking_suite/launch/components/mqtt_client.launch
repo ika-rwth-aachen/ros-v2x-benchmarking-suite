@@ -1,0 +1,30 @@
+<launch>
+
+  <arg name="nodelet_manager" />
+
+  <arg name="type" /> <!-- vehicle/cloud -->
+  <arg name="datatype" /> <!-- packets/pointcloud -->
+  <arg name="transmission_only" default="false" />
+
+  <arg name="host" />
+  <arg name="port" />
+  <arg name="user" />
+  <arg name="pass" />
+
+  <arg name="qos" default="0" />
+  <arg name="ssl" default="false" />
+
+  <!--- mqtt_client -->
+  <node pkg="nodelet" type="nodelet" name="mqtt_client_$(arg type)" args="load mqtt_client/MqttClient $(arg nodelet_manager)" output="screen">
+    <rosparam if="$(eval type == 'vehicle' and not transmission_only)" command="load" file="$(find benchmarking_suite)/params/mqtt_client_$(arg type)_$(arg datatype).yaml" subst_value="true" />
+    <rosparam if="$(eval type == 'vehicle' and transmission_only)" command="load" file="$(find benchmarking_suite)/params/mqtt_client_$(arg type)_$(arg datatype)_transmission-only.yaml" subst_value="true" />
+    <rosparam if="$(eval type == 'cloud')" command="load" file="$(find benchmarking_suite)/params/mqtt_client_$(arg type).yaml" subst_value="true" />
+    <param name="broker/host" value="$(arg host)" />
+    <param name="broker/port" value="$(arg port)" />
+    <param name="broker/user" value="$(arg user)" />
+    <param name="broker/pass" value="$(arg pass)" />
+    <param name="broker/tls/enabled" value="$(arg ssl)" />
+    <param name="broker/tls/ca_certificate" value="$(find benchmarking_suite)/params/mosquitto_ssl/ssl/ca-cert.pem" />
+  </node>
+
+</launch>

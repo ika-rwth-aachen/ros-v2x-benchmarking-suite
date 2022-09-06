@@ -1,0 +1,15 @@
+bridge:
+  ros2mqtt:
+    - ros_topic: /benchmarking_suite/packets
+      mqtt_topic: benchmarking_suite/packets
+      timestamp_topic_prefix: /benchmarking_suite/timestamps/mqtt_interface_vehicle/packets
+      advanced:
+        mqtt:
+          qos: $(arg qos)
+  mqtt2ros:
+    - mqtt_topic: benchmarking_suite/packets
+      ros_topic: /benchmarking_suite/packets_return
+      timestamp_topic_prefix: /benchmarking_suite/timestamps/mqtt_interface_vehicle/packets_return
+      advanced:
+        mqtt:
+          qos: $(arg qos)

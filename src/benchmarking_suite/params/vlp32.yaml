@@ -1,0 +1,5 @@
+model: 32C
+calibration: "$(find velodyne_pointcloud)/params/VeloView-VLP-32C.yaml"
+max_range: 200.0
+min_range: 0.4
+organize_cloud: false
