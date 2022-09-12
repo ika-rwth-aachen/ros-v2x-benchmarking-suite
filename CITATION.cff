@@ -1,0 +1,34 @@
+cff-version: 1.2.0
+message: "We hope that our paper and code can help your research. If this is the case, please cite it using the following metadata."
+
+title: "ROS V2X Benchmarking Suite"
+type: software
+repository-code: "https://github.com/ika-rwth-aachen/ros-v2x-benchmarking-suite"
+date-released: 2022-09-06
+authors:
+  - given-names: Lennart
+    family-names: Reiher
+  - given-names: Bastian
+    family-names: Lampe
+
+preferred-citation:
+  title: "Enabling Connectivity for Automated Mobility: A Novel MQTT-based Interface Evaluated in a 5G Case Study on Edge-Cloud Lidar Object Detection"
+  type: conference-paper
+  conference:
+    name: "2022 IEEE 2nd International Conference on Electrical, Computer, Communications and Mechatronics Engineering (ICECCME)"
+  month: 11
+  year: 2022
+  # doi: ""
+  authors:
+    - given-names: Lennart
+      family-names: Reiher
+    - given-names: Bastian
+      family-names: Lampe
+    - given-names: Timo
+      family-names: Woopen
+    - given-names: Raphael
+      family-names: van Kempen
+    - given-names: Till
+      family-names: Beemelmanns
+    - given-names: Lutz
+      family-names: Eckstein

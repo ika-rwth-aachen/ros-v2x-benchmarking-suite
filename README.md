@@ -17,15 +17,16 @@ As part of our work, we have developed and released a novel MQTT-based communica
 In our paper, we present an in-depth analysis of using the new interface and presented alternatives for a promising use case in automated driving, namely edge-cloud lidar object detection. More details are found in [Use Case](#use-case-5g-edge-cloud-lidar-object-detection).
 
 > **Enabling Connectivity for Automated Mobility: A Novel MQTT-based Interface Evaluated in a 5G Case Study on Edge-Cloud Lidar Object Detection**
+> ([arXiv](https://arxiv.org/abs/2209.03630), [ResearchGate](https://www.researchgate.net/publication/363366074_Enabling_Connectivity_for_Automated_Mobility_A_Novel_MQTT-based_Interface_Evaluated_in_a_5G_Case_Study_on_Edge-Cloud_Lidar_Object_Detection))
 >
 > [Lennart Reiher](https://www.ika.rwth-aachen.de/de/institut/team/lennart-reiher-msc.html), [Bastian Lampe](https://www.ika.rwth-aachen.de/en/institute/staff/bastian-lampe-m-sc.html), [Timo Woopen](https://www.ika.rwth-aachen.de/de/institut/leitung/timo-woopen-msc.html), [Raphael van Kempen](https://www.ika.rwth-aachen.de/de/institut/team/raphael-van-kempen-msc.html), [Till Beemelmanns](https://www.ika.rwth-aachen.de/de/institut/team/till-beemelmanns-msc.html), and [Lutz Eckstein](https://www.ika.rwth-aachen.de/en/institute/management/univ-prof-dr-ing-lutz-eckstein.html)  
 > [Institute for Automotive Engineering (ika), RWTH Aachen University](https://www.ika.rwth-aachen.de/en/)
->
-> *Abstract* - Enabling secure and reliable high-bandwidth low-latency connectivity between automated vehicles and external servers, intelligent infrastructure, and other road users is a central step in making fully automated driving possible.
+> 
+> <sup>*Abstract* - Enabling secure and reliable high-bandwidth low-latency connectivity between automated vehicles and external servers, intelligent infrastructure, and other road users is a central step in making fully automated driving possible.
 > The availability of data interfaces, which allow this kind of connectivity, has the potential to distinguish artificial agents' capabilities in connected, cooperative, and automated mobility systems from the capabilities of human operators, who do not possess such interfaces.
 > Connected agents can for example share data to build collective environment models, plan collective behavior, and learn collectively from the shared data that is centrally combined.
 > This paper presents multiple solutions that allow connected entities to exchange data. In particular, we propose a new universal communication interface which uses the Message Queuing Telemetry Transport (MQTT) protocol to connect agents running the Robot Operating System (ROS). Our work integrates methods to assess the connection quality in the form of various key performance indicators in real-time.
-> We compare a variety of approaches that provide the connectivity necessary for the exemplary use case of edge-cloud lidar object detection in a 5G network. We show that the mean latency between the availability of vehicle-based sensor measurements and the reception of a corresponding object list from the edge-cloud is below 87ms. All implemented solutions are made open-source and free to use.
+> We compare a variety of approaches that provide the connectivity necessary for the exemplary use case of edge-cloud lidar object detection in a 5G network. We show that the mean latency between the availability of vehicle-based sensor measurements and the reception of a corresponding object list from the edge-cloud is below 87ms. All implemented solutions are made open-source and free to use.</sup>
 
 ---
 
@@ -116,7 +117,7 @@ From here on, instructions are separated into steps that need to be performed on
       --name benchmarking-cloud \
       ros-v2x-benchmarking-suite"
     ```
-1. Create an second alias for quickly starting the Docker container in an overlay network.
+1. Create a second alias for quickly starting the Docker container in an overlay network.
     ```bash
     # ros-v2x-benchmarking-suite/
     alias benchmark_cloud_ol="
@@ -149,7 +150,7 @@ From here on, instructions are separated into steps that need to be performed on
       --name benchmarking-vehicle \
       ros-v2x-benchmarking-suite"
     ```
-1. Create an second alias for quickly starting the Docker container in an overlay network.
+1. Create a second alias for quickly starting the Docker container in an overlay network.
     ```bash
     # ros-v2x-benchmarking-suite/
     alias benchmark_vehicle_ol="
