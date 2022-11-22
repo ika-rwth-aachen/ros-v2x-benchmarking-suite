@@ -71,6 +71,9 @@
   <exec_depend>roslaunch</exec_depend>
   <exec_depend>rospy</exec_depend>
   <exec_depend>rospy_message_converter</exec_depend>
+  <exec_depend>rqt_plot</exec_depend>
+  <exec_depend>rqt_reconfigure</exec_depend>
+  <exec_depend>rviz</exec_depend>
   <exec_depend>python3-numpy</exec_depend>
   <exec_depend>velodyne_pointcloud</exec_depend>
 

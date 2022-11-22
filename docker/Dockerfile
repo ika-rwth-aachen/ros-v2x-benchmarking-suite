@@ -3,7 +3,7 @@ ARG WORKSPACE=/root/ws
 ARG ROS_DEPENDENCIES_INSTALL_SCRIPT=$WORKSPACE/.install-dependencies.sh
 
 # === TEMPORARY STAGE FOR DETERMINING DEPENDENCIES =============================
-FROM osrf/ros:noetic-desktop-full AS dependencies
+FROM ros:noetic AS dependencies
 ARG DEBIAN_FRONTEND
 ARG WORKSPACE
 ARG ROS_DEPENDENCIES_INSTALL_SCRIPT
@@ -25,7 +25,7 @@ RUN apt-get update && \
     chmod +x $ROS_DEPENDENCIES_INSTALL_SCRIPT
 
 # === STAGE FOR DEVELOPMENT IMAGE ==============================================
-FROM osrf/ros:noetic-desktop-full AS development
+FROM ros:noetic AS development
 ARG DEBIAN_FRONTEND
 ARG ROS_DEPENDENCIES_INSTALL_SCRIPT
 
