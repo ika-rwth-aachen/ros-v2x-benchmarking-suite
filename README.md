@@ -17,7 +17,7 @@ As part of our work, we have developed and released a novel MQTT-based communica
 In our paper, we present an in-depth analysis of using the new interface and presented alternatives for a promising use case in automated driving, namely edge-cloud lidar object detection. More details are found in [Use Case](#use-case-5g-edge-cloud-lidar-object-detection).
 
 > **Enabling Connectivity for Automated Mobility: A Novel MQTT-based Interface Evaluated in a 5G Case Study on Edge-Cloud Lidar Object Detection**
-> ([arXiv](https://arxiv.org/abs/2209.03630), [ResearchGate](https://www.researchgate.net/publication/366719186_Enabling_Connectivity_for_Automated_Mobility_A_Novel_MQTT-based_Interface_Evaluated_in_a_5G_Case_Study_on_Edge-Cloud_Lidar_Object_Detection))
+> ([IEEE Xplore](https://ieeexplore.ieee.org/document/9987813), [arXiv](https://arxiv.org/abs/2209.03630), [ResearchGate](https://www.researchgate.net/publication/366719186_Enabling_Connectivity_for_Automated_Mobility_A_Novel_MQTT-based_Interface_Evaluated_in_a_5G_Case_Study_on_Edge-Cloud_Lidar_Object_Detection))
 >
 > [Lennart Reiher](https://www.ika.rwth-aachen.de/de/institut/team/lennart-reiher-msc.html), [Bastian Lampe](https://www.ika.rwth-aachen.de/en/institute/staff/bastian-lampe-m-sc.html), [Timo Woopen](https://www.ika.rwth-aachen.de/de/institut/leitung/timo-woopen-msc.html), [Raphael van Kempen](https://www.ika.rwth-aachen.de/de/institut/team/raphael-van-kempen-msc.html), [Till Beemelmanns](https://www.ika.rwth-aachen.de/de/institut/team/till-beemelmanns-msc.html), and [Lutz Eckstein](https://www.ika.rwth-aachen.de/en/institute/management/univ-prof-dr-ing-lutz-eckstein.html)  
 > [Institute for Automotive Engineering (ika), RWTH Aachen University](https://www.ika.rwth-aachen.de/en/)
