@@ -18,7 +18,7 @@ preferred-citation:
     name: "2022 IEEE 2nd International Conference on Electrical, Computer, Communications and Mechatronics Engineering (ICECCME)"
   month: 11
   year: 2022
-  # doi: ""
+  doi: 10.1109/ICECCME55909.2022.9987813
   authors:
     - given-names: Lennart
       family-names: Reiher
