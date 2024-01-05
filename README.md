@@ -8,6 +8,14 @@
 
 The **ROS V2X Benchmarking Suite** allows users to easily send data between two connected ROS-based systems, and to benchmark the latency between these systems. Various methods to exchange data can be tested, including [`mqtt_client`](https://github.com/ika-rwth-aachen/mqtt_client), [`mqtt_bridge`](https://github.com/groove-x/mqtt_bridge), and [Docker Overlay Networks](https://docs.docker.com/network/overlay/).
 
+> [!IMPORTANT]  
+> This repository is open-sourced and maintained by the [**Institute for Automotive Engineering (ika) at RWTH Aachen University**](https://www.ika.rwth-aachen.de/).  
+> **V2X Communication** is one of many research topics within our [*Vehicle Intelligence & Automated Driving*](https://www.ika.rwth-aachen.de/en/competences/fields-of-research/vehicle-intelligence-automated-driving.html) domain.  
+> If you would like to learn more about how we can support your automated driving or robotics efforts, feel free to reach out to us!  
+> &nbsp;&nbsp;&nbsp;&nbsp; *Timo Woopen - Manager Research Area Vehicle Intelligence & Automated Driving*  
+> &nbsp;&nbsp;&nbsp;&nbsp; *+49 241 80 23549*  
+> &nbsp;&nbsp;&nbsp;&nbsp; *timo.woopen@ika.rwth-aachen.de*  
+
 ---
 
 Follow the quick start guide in this README to quickly benchmark the latency in your network, including a live plot of latencies. The guide also allows you to easily re-run experiments from our paper for which we have developed this benchmarking suite.
